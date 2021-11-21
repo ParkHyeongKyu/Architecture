@@ -1,0 +1,105 @@
+`timescale 1ns / 100ps
+
+`define	NumBits	16
+
+module ALU (A, B, FuncCode, C, OverflowFlag);
+	input [`NumBits-1:0] A;
+	input [`NumBits-1:0] B;
+	input [3:0] FuncCode;
+	output [`NumBits-1:0] C;
+	output OverflowFlag;
+
+	reg [`NumBits-1:0] C;
+	reg OverflowFlag;
+
+	// You can declare any variables as needed.
+	event a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16;
+	reg x, y, z;
+	reg signed [`NumBits-1:0] AS;
+
+	initial begin
+		C = 0;
+		OverflowFlag = 0;
+	end
+
+	always @(A or B or FuncCode) begin
+		case (FuncCode)
+			4'b0000: -> a1;
+			4'b0001: -> a2;
+			4'b0010: -> a3;
+			4'b0011: -> a4;
+			4'b0100: -> a5;
+			4'b0101: -> a6;
+			4'b0110: -> a7;
+			4'b0111: -> a8;
+			4'b1000: -> a9;
+			4'b1001: -> a10;
+			4'b1010: -> a11;
+			4'b1011: -> a12;
+			4'b1100: -> a13;
+			4'b1101: -> a14;
+			4'b1110: -> a15;
+			4'b1111: -> a16;
+		endcase
+	end
+
+	always @a1 begin
+		C = A + B;
+		x = A[15];
+		y = B[15];
+		z = C[15];
+		OverflowFlag = (!x & !y & !(!z)) | (!(!x) & !(!y) & !z);
+	end
+	always @a2 begin
+		C = A - B;
+		x = A[15];
+		y = B[15];
+		z = C[15];
+		OverflowFlag = (!x & !(!y) & !(!z)) | (!(!x) & !y & !z);
+	end
+	always @a3 begin
+		C = A;
+	end
+	always @a4 begin
+		C = ~A;
+	end
+	always @a5 begin
+		C = A & B;
+	end
+	always @a6 begin
+		C = A | B;
+	end
+	always @a7 begin
+		C = ~(A & B);
+	end
+	always @a8 begin
+		C = ~(A | B);
+	end
+	always @a9 begin
+		C = A ^ B;
+	end
+	always @a10 begin
+		C = ~(A ^ B);
+	end
+	always @a11 begin
+		C = A << 1;
+	end
+	always @a12 begin
+		C = A >> 1;
+	end
+	always @a13 begin
+		C = A <<< 1;
+	end
+	always @a14 begin
+		AS = A;
+		C = AS >>> 1;
+	end
+	always @a15 begin
+		C = ~A + 1;
+	end
+	always @a16 begin
+		C = 0;
+	end
+
+endmodule
+

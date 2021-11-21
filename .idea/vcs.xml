@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Archi_ALU" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Archi_CachedCPU" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Archi_DMA" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Archi_MultiCycleCPU" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Archi_PipelinedCPU" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Archi_SingleCycleCPU" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Archi_VendingMachine" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Archi_nocachedCPU" vcs="Git" />
+  </component>
+</project>
